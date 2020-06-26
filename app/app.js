@@ -76,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //add functions to keyCodes
     function control(e) {
-        if(e.keyCode === 37){
+        if(e.keyCode === 37 || e.keyCode === 65){
             moveLeft()
-        }else if(e.keyCode === 38) {
+        }else if(e.keyCode === 32 || e.keyCode === 87) {
             Rotate()
-        }else if (e.keyCode === 39) {
+        }else if (e.keyCode === 39 || e.keyCode === 68) {
             moveRight()
-        }else if (e.keyCode === 40) {
+        }else if (e.keyCode === 40 || e.keyCode === 83) {
             moveDown()
         }
     }
@@ -143,7 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
-    // 1.06.40
+    //next tetromino in line
+    const displaySquares = document.querySelectorAll('.mini-grid div')
+    
 
 
 })
