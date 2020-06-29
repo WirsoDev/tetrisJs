@@ -1,11 +1,66 @@
-body{
-    font-family: sans-serif;
-    background-color: rgb(128, 66, 66);
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,500;1,300&display=swap');
+
+:root {
+    --primary-col: #E5E5E5;
+    --sec-col: #3E3E3E;
+    --tre-color: #AD4545;
+    --main-font: 'Raleway', sans-serif;
+
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    margin: 0;
+    padding: 0;
 }
 
 
+body{
+    font-family: var(--main-font);
+    background: var(--primary-col);
+}
+
+
+.title {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h1 {
+
+    border-top: solid var(--sec-col) 8px;
+    color: var(--sec-col);
+    font-size: 110px;
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+
+.title button{
+    font-size: 28px;
+    color: var(--primary-col);
+    background-color: var(--tre-color);
+    align-items: center;
+    border: none;
+    padding: 10px 20px;
+    width: 216px;
+    height: 50px;
+    transition: 400ms;
+}
+
+.title button:hover {
+    background-color: #d15555;
+
+}
+
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -15,28 +70,60 @@ body{
     height: 400px;
     display: flex;
     flex-wrap: wrap;
-    background-color: grey;
+    border: solid var(--tre-color) 8px;
+    transition: 400ms;
 }
 
 .grid div {
     height: 20px;
     width: 20px;
+    transition: 100ms;
+
+}
+
+.hover{
+    border: solid #d15555 8px;
 }
 
 .tetromino {
-    background-color: blue;
+    background-color: rgb(111, 111, 206);
 }
 
 .mini-grid {
-    margin-left: 50px;
     width: 80px;
     height: 80px;
     display: flex;
     flex-wrap: wrap;
-    background-color: yellow;
+    align-items: center;
 }
 
 .mini-grid div {
     height: 20px;
     width: 20px;
+    transition: 500ms;
+}
+
+
+.nxline{
+    display: flex;
+    flex-direction: column;
+    color: var(--sec-col);
+    align-items: center;
+}
+
+.values h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--sec-col);
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+
+.values p {
+    padding: none;
+    margin: none;
+    font-size: 12px;
+    text-align: center;
+    align-items: center;
 }
