@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js" charset="utf8"></script> 
-    <link rel="stylesheet" href="main.css">
+    <script src="/app/script/app.js" charset="utf8"></script> 
+    <link rel="stylesheet" href="/app/static/main.css">
+    <link rel="stylesheet" href="/app/static/over.css">
     <title>Minimal Tetris</title>
 </head>
 <body>
@@ -255,7 +256,14 @@
         </div>
     </div>
 
-    <script src="interact.js"></script>
+    <!--Game over page-->
+    <div id="overPage" class="hide">
+      <h1>Game over man!</h1>
+      <p>max score: <span>0</span></p>
+      <button id="tBtn">Try again!</button>
+    </div>
+
+    <script src="/app/script/interact.js"></script>
   </body>
 </html>
 </html>
