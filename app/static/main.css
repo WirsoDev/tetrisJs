@@ -5,8 +5,8 @@
     --sec-col: #3E3E3E;
     --tre-color: #AD4545;
     --main-font: 'Raleway', sans-serif;
-
 }
+
 
 *:focus {
     outline: none;
@@ -17,12 +17,10 @@ html {
     padding: 0;
 }
 
-
 body{
     font-family: var(--main-font);
     background: var(--primary-col);
 }
-
 
 .title {
     margin-top: 20px;
@@ -39,7 +37,6 @@ body{
     margin: 0;
     margin-bottom: 0px;
 }
-
 
 .title button{
     font-size: 28px;
@@ -78,7 +75,6 @@ body{
     height: 20px;
     width: 20px;
     transition: 100ms;
-
 }
 
 .hover{
@@ -103,7 +99,6 @@ body{
     transition: 500ms;
 }
 
-
 .nxline{
     display: flex;
     flex-direction: column;
@@ -127,3 +122,4 @@ body{
     text-align: center;
     align-items: center;
 }
+
