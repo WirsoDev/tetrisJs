@@ -1,22 +1,15 @@
 {
-  "name": "tetrisJs",
+  "name": "tetrisjs",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wirsodev/tetrisJs.git"
-  },
+
   "keywords": [],
-  "author": "",
+  "author": "wirsoDev",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wirsodev/tetrisJs/issues"
-  },
-  "homepage": "https://github.com/wirsodev/tetrisJs#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
