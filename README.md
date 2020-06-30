@@ -3,7 +3,7 @@
 ### Full Vanilla JavaScript tetris game.
 
 
-### Ya, i know! The html is really not attractive! :D but I'll make another one better. Using Html as less as possible.
+### Ya, i know! Html is really not attractive! :D 
 
 #### have fun!
 
