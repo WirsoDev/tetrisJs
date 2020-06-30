@@ -10,4 +10,4 @@
 
 <img src="img/t_02.jpg"
      alt="minimal tetris"
-     style="height: 600px;"/>
+     />
