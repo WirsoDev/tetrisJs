@@ -1,6 +1,8 @@
 const btn = document.querySelector('#start-button')
 const score = document.querySelector('.values h3 span')
 const start = document.querySelector('.grid')
+const oBtn = document.querySelector('#tBtn')
+const overPage = document.querySelector('#overPage')
 
 btn.addEventListener('click', () => {
 
@@ -19,5 +21,8 @@ btn.addEventListener('mouseout', () => {
     start.classList.remove('hover')
 })
 
-
+oBtn.addEventListener('click', () =>{
+    overPage.classList.add('hide')
+    location.reload()
+})
 

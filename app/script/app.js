@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.querySelector('#start-button')
     const level = document.querySelector('#level')
     const gameOvervalue = document.querySelector('.values h3')
+    const modeOver = document.querySelector('#overPage')
+    const finalScore = document.querySelector('#overPage p span')
     const width = 10
     let nextRandom = 0
     let timerId
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       '#A7A7A7',
     ]
   
-    //The Tetrominoes
+    //Make the Tetris pieces
     const lTetromino = [
       [1, width+1, width*2+1, 2],
       [width, width+1, width+2, width*2+2],
@@ -62,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
     console.log(theTetrominoes[0][0])
   
-    //randomly select a Tetromino and its first rotation
+    //randomly select a piece and its first rotation
     let random = Math.floor(Math.random()*theTetrominoes.length)
     let current = theTetrominoes[random][currentRotation]
   
-    //draw the Tetromino
+    //draw the piece
     function draw() {
       current.forEach(index => {
         squares[currentPosition + index].classList.add('tetromino')
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
   
-    //undraw the Tetromino
+    //undraw the piece
     function undraw() {
       current.forEach(index => {
         squares[currentPosition + index].classList.remove('tetromino')
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     }
   
-    //assign functions to keyCodes
+    //assign keycodes
     function control(e) {
       if(e.keyCode === 37) {
         moveLeft()
@@ -121,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    //move the tetromino left, unless is at the edge or there is a blockage
+    //move the piece left
     function moveLeft() {
       undraw()
       const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
@@ -132,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
       draw()
     }
   
-    //move the tetromino right, unless is at the edge or there is a blockage
+    //move right
     function moveRight() {
       undraw()
       const isAtRightEdge = current.some(index => (currentPosition + index) % width === width -1)
@@ -152,13 +154,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function isAtLeft() {
       return current.some(index=> (currentPosition + index) % width === 0)
     }
-    
+
+    //get current position.  Then, check if the piece is near the left side.
+    //add 1 because the position index can be 1 less than where the piece is (with how they are indexed).     
+    //use actual position to check if it's flipped over to right side
+    //if so, add one to wrap it back around
+    //check again.  Pass position from start, since long block might need to move more.
+
     function checkRotatedPosition(P){
-      P = P || currentPosition       //get current position.  Then, check if the piece is near the left side.
-      if ((P+1) % width < 4) {         //add 1 because the position index can be 1 less than where the piece is (with how they are indexed).     
-        if (isAtRight()){            //use actual position to check if it's flipped over to right side
-          currentPosition += 1    //if so, add one to wrap it back around
-          checkRotatedPosition(P) //check again.  Pass position from start, since long block might need to move more.
+      P = P || currentPosition    
+      if ((P+1) % width < 4) {      
+        if (isAtRight()){          
+          currentPosition += 1    
+          checkRotatedPosition(P) 
           }
       }
       else if (P % width > 5) {
@@ -169,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     
-    //rotate the tetromino
+    //rotate the piece
     function rotate() {
       undraw()
       currentRotation ++
@@ -182,13 +190,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
       
-    //show up-next tetromino in mini-grid display
+    //show next in line in mini-grid display
     const displaySquares = document.querySelectorAll('.mini-grid div')
     const displayWidth = 4
     const displayIndex = 0
   
   
-    //the Tetrominos without rotations
+    //the piece without rotations
     const upNextTetrominoes = [
       [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
       [0, displayWidth, displayWidth+1, displayWidth*2+1], //zTetromino
@@ -199,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     //display the shape in the mini-grid display
     function displayShape() {
-      //remove any trace of a tetromino form the entire grid
       displaySquares.forEach(square => {
         square.classList.remove('tetromino')
         square.style.backgroundColor = ''
@@ -260,7 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
         gameOvervalue.innerHTML = 'Game Over Man!'
         gameOvervalue.style.color = colors[0]
         clearInterval(timerId)
+        overPage()
       }
+    }
+
+    //load gameover page || show results
+    function overPage(){
+      finalScore.innerHTML = score
+      modeOver.classList.remove('hide')
     }
 
   })
